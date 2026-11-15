@@ -1,0 +1,28 @@
+const logger = {
+  
+  log(level, message, metadata) {
+    
+    const messageObj = {
+      timestamp: new Date().toISOString(),
+      level,
+      message,
+      metadata,
+    };
+
+    console.log(JSON.stringify(messageObj));
+  },
+
+  error(message, metadata) {
+    this.log("error", message, metadata);
+  },
+
+  info(message, metadata) {
+    this.log("info", message, metadata);
+  }, 
+
+  debug(message, metadata) {
+    this.log("debug", message, metadata);
+  },
+};
+
+module.exports = logger;
